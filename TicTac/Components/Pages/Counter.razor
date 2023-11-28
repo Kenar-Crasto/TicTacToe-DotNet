@@ -1,0 +1,38 @@
+﻿@page "/register"
+
+<h3>Register</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="@HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText id="email" class="form-control" @bind-Value="@loginModel.Email" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <InputText id="password" type="password" class="form-control" @bind-Value="@loginModel.Password" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+
+    private void HandleLogin()
+    {
+        // Handle the login logic here
+    }
+
+    public class LoginModel
+    {
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+    }
+}
+
